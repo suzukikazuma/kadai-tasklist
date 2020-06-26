@@ -16,7 +16,7 @@ class TasksController extends Controller
     public function index()
     {
         //
-        $tasks = Task::all();
+        $tasks = Task::orderBy("id","desc")->paginate(10);
         return view("tasks.index",[
             "tasks" => $tasks,
             ]);
@@ -98,6 +98,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
+     
         $this->validate($request, [
             "status" => "required|max:10",
             "content" => "required|max:255",
