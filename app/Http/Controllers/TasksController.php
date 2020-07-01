@@ -13,13 +13,21 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
+    
     public function index()
     {
         //
         $tasks = Task::orderBy("id","desc")->paginate(10);
-        return view("tasks.index",[
+        
+        if(\Auth::check()){
+           return view("tasks.index",[
             "tasks" => $tasks,
-            ]);
+            ]); 
+        }else{
+            return view("welcome");
+        }
+        
     }
 
     /**
