@@ -1,12 +1,12 @@
 @extends("layouts.app")
 @section("content")
 
-  <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
+  <h1>id = {{ $task->user_id }} のタスク詳細ページ</h1>
   
   <table class="table table-bordered">
     <tr>
       <th>id</th>
-      <td>{{ $task->id }}</td>
+      <td>{{ $task->user_id }}</td>
     </tr>
     <tr>
       <th>ステータス</th>
